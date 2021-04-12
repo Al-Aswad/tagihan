@@ -73,7 +73,7 @@ class SetoranController extends CI_Controller
 
                //mengambil salah satu awb untuk jadi kode setor dan nama gambar
                $kode_setor = $this->m_setoran->get_kode($pod_time);
-               //pengaturan gambar
+               //pengaturan gambar yang akan di upload
                $config['upload_path'] = 'gambar/bukti_transfer';
                $config['allowed_types'] = 'jpeg|jpg|png';
                $config['max_size'] = 1024; //max ukuran gambar
