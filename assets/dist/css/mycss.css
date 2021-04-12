@@ -1,0 +1,136 @@
+/* table {
+    width: 100%;
+}
+
+
+
+th,
+td {
+    text-align: left;
+    border: 1px solid #dddddd;
+    height: 35px;
+    max-height: 40px;
+    padding: 0 10px;
+    font-size: 14px;
+}
+
+tr.selected {
+    background: #e692ae;
+} */
+
+body {
+    font-family: 'Poppins', 'Times New Roman', Times, serif;
+}
+
+thead {
+    color: #606266;
+    background: #f8f9fc;
+}
+
+.table td,
+.table th {
+    vertical-align: middle;
+    padding: .5rem;
+}
+
+td {
+    /* height: 35px; */
+    padding: 2px 10px !important;
+    font-family: 'Sans Serif', Times, serif;
+}
+
+.tambah-karyawan {
+    color: #222;
+}
+
+.pagination {
+    height: 20px;
+}
+
+.page-link {
+    margin-top: .25rem;
+    padding: .3rem .65rem;
+}
+
+.form_input {
+    font-size: 14px;
+    padding: 2px 10px;
+    height: 30px;
+}
+
+.form_input:focus {
+    border: 1px solid #333;
+    box-shadow: none;
+}
+
+
+/* datatables */
+
+.dataTables_length label {
+    margin-top: 15px;
+    display: inline-flex;
+}
+
+.dataTables_length label select {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.dataTables_length {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.dataTables_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.dt-buttons {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.dataTables_filter {
+    margin-top: 12px;
+}
+
+.btn-secondary {
+    background-color: #21883700;
+    color: #1cc88a;
+    border-color: #1cc88a;
+}
+
+.btn-secondary:hover {
+    background-color: #1cc88a;
+    color: #ffffff;
+    border-color: #1cc88a;
+}
+
+.buttons-excel,
+.buttons-colvis,
+.buttons-pdf {
+    margin-right: 5PX;
+    margin-bottom: 5px;
+}
+
+.dis_gambar {
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.dis_gambar img {
+    width: 100%;
+    transition: 0.5s all ease-in-out;
+}
+
+.dis_gambar:hover img {
+    transform: scale(1.5);
+}
+
+
+/* end datatables */
