@@ -9,7 +9,9 @@ class AdminController extends CI_Controller
           parent::__construct();
           //Do your magic here
           if ($this->session->userdata('status') !== 'telah_login') {
-               redirect(site_url('keluar'));
+               if ($this->session->userdata('pengguna_th') == "") {
+                    redirect(site_url('keluar'));
+               }
           }
 
           date_default_timezone_set('Asia/Makassar');
@@ -28,7 +30,7 @@ class AdminController extends CI_Controller
      }
      function ajax_admin_th()
      {
-          // $this->load->model('m_admin', 'admin_th');
+          $this->load->model('m_admin', 'm_admin');
           $list = $this->m_admin->get_datatables();
           $data = array();
           $no = $_POST['start'];
@@ -44,8 +46,7 @@ class AdminController extends CI_Controller
                $row[] = number_format($m_admin->fee, 2);
                $row[] = $m_admin->pod_time;
                $row[] = $m_admin->timedown;
-               $row[] = '<a href="' . base_url('Admin_th/sudah_aksi_id/') . $m_admin->id . '" class="btn btn-sm btn-warning mr-1">Sudah</a>';
-
+               $row[] = '<a href="' . base_url('setor/') . $m_admin->id . '" class="btn btn-sm btn-primary text-white">Terima</a>';
                $data[] = $row;
           }
           $output = array(

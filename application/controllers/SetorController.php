@@ -52,6 +52,11 @@ class SetorController extends CI_Controller
           }
      }
 
+     function setor($id)
+     {
+          $this->m_setor->setor($id);
+          redirect(site_url('admin'));
+     }
      function setor_bulk()
      {
           $id = $this->input->post('id');

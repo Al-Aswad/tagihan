@@ -75,7 +75,7 @@
 			</div>
 			<!-- /.card-header -->
 			<div class="card-body pt-0">
-				<table id="example1" class="table table-bordered table-hover">
+				<table id="d-admin" class="table table-bordered table-hover" style="width: 100%;">
 					<thead>
 						<tr>
 							<th>No</th>
@@ -85,22 +85,13 @@
 							<th>TH</th>
 							<th>Type</th>
 							<th>Nominal</th>
-							<th>POD-Time</th>
+							<th>POD_Time</th>
+							<th>Lama</th>
+							<th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
-						<tr>
-							<td>Trident</td>
-							<td>Internet
-								Explorer 4.0
-							</td>
-							<td>Win 95+</td>
-							<td> 4</td>
-							<td>X</td>
-							<td>X</td>
-							<td>X</td>
-							<td>X</td>
-						</tr>
+
 					</tbody>
 					<tfoot>
 						<tr>
@@ -111,7 +102,9 @@
 							<th>TH</th>
 							<th>Type</th>
 							<th>Nominal</th>
-							<th>POD-Time</th>
+							<th>POD_Time</th>
+							<th>Lama</th>
+							<th>Aksi</th>
 						</tr>
 					</tfoot>
 				</table>

@@ -24,6 +24,7 @@
 <!-- REQUIRED SCRIPTS -->
 <!-- jQuery -->
 <script src="<?= base_url('') . 'assets/' ?>plugins/jquery/jquery.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
 <!-- Bootstrap -->
 <script src="<?= base_url('') . 'assets/' ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- overlayScrollbars -->
@@ -97,7 +98,42 @@
           });
      });
 </script>
+<script>
+     var table;
+     $(document).ready(function() {
+          table = $('#d-admin').DataTable({
+               "autoWidth": true,
+               "responsive": true,
+               "processing": true, //Feature control the processing indicator.
+               "serverSide": true, //Feature control DataTables' server-side processing mode.
+               "order": [], //Initial no order.
 
+               // Load data for the table's content from an Ajax source
+               "ajax": {
+                    "url": "<?= base_url() . 'adminController/ajax_admin_th' ?>",
+                    "type": "POST"
+               },
+
+               //Set column definition initialisation properties.
+               "columnDefs": [{
+                    "targets": [0], //first column / numbering column
+                    "orderable": false, //set not orderable
+               }, ],
+
+
+               dom: 'lBfrtip',
+               buttons: [{
+                    extend: 'excelHtml5',
+                    title: 'Excel',
+               }],
+               "lengthMenu": [
+                    [10, 25, 50, -1],
+                    // [10, 25, 50, "All"]
+                    [10, 25, 50, 100]
+               ]
+          });
+     });
+</script>
 </body>
 
 </html>

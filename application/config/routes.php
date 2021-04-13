@@ -76,6 +76,7 @@ $route['history'] = 'historyController';
 
 // admin
 $route['admin'] = 'adminController';
+$route['setor/(:num)'] = 'setorController/setor/$1';
 $route['setor-bulk'] = 'setorController/setor_bulk';
 $route['setoran-kurir'] = 'setoranController/setoran_kurir';
 $route['admin-setor/(:any)'] = 'setoranController/setor_to_finance/$1';
