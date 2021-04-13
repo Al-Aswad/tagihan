@@ -40,8 +40,8 @@ class M_history extends CI_Model
           SUM( CASE WHEN TYPE = 'Monthly' THEN fee ELSE 0 END) AS cod,
           SUM( CASE WHEN TYPE = 'Cash' THEN fee ELSE 0 END) AS cash,
           SUM( fee) AS semua,
-          SUM( CASE WHEN status = 4 THEN fee ELSE 0 END) AS sudah_setor,
-          SUM( CASE WHEN status !=4  THEN fee ELSE 0 END) AS belum_setor
+          SUM( CASE WHEN status = 3 THEN fee ELSE 0 END) AS sudah_setor,
+          SUM( CASE WHEN status !=3  THEN fee ELSE 0 END) AS belum_setor
           FROM `belum_setor` WHERE EXTRACT(YEAR_MONTH FROM pod_time)='$bulan' GROUP BY pod_time")->result();
      }
      function historynominal_filter($bulan)
@@ -51,8 +51,8 @@ class M_history extends CI_Model
           SUM( CASE WHEN TYPE = 'Monthly' THEN fee ELSE 0 END) AS cod,
           SUM( CASE WHEN TYPE = 'Cash' THEN fee ELSE 0 END) AS cash,
           SUM( fee) AS semua,
-          SUM( CASE WHEN status = 4 THEN fee ELSE 0 END) AS sudah_setor,
-          SUM( CASE WHEN status !=4  THEN fee ELSE 0 END) AS belum_setor
+          SUM( CASE WHEN status = 3 THEN fee ELSE 0 END) AS sudah_setor,
+          SUM( CASE WHEN status !=3  THEN fee ELSE 0 END) AS belum_setor
           FROM `belum_setor` WHERE EXTRACT(YEAR_MONTH FROM pod_time)='$bulan' GROUP BY pod_time")->result();
      }
 }

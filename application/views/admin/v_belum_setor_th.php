@@ -12,7 +12,7 @@
                <!-- /.card-header -->
                <div class="card-body pt-0">
                     <form method="post" action="<?php echo base_url('setor-bulk') ?>" id="form-setor">
-                         <table id="example1" class="table table-bordered table-hover">
+                         <table id="example1" class="table table-bordered table-hover" style="width: 100%;">
                               <thead>
                                    <tr>
                                         <th>No</th>

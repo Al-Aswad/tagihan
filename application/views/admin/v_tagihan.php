@@ -45,7 +45,7 @@
                          <th class="bg-warning text-white">Total</th>
                          <th class="bg-success">Sudah-Setor</th>
                          <th class="bg-primary">Sisa-Tagihan</th>
-                         <th>Aksi</th>
+                         <!-- <th>Aksi</th> -->
                     </tr>
                </thead>
                <tbody>
@@ -59,9 +59,9 @@
                               <td class="bg-warning"><?= number_format($t->total); ?></td>
                               <td class="bg-success"><?= number_format($t->terkonfirmasi); ?></td>
                               <td class="bg-primary"><?= number_format($t->total - $t->terkonfirmasi); ?></td>
-                              <td>
+                              <!-- <td>
                                    <a href="http://" class="btn btn-sm btn-primary">Cek</a>
-                              </td>
+                              </td> -->
                          </tr>
                     <?php
                          $total_sisa += $t->total - $t->terkonfirmasi;
@@ -76,7 +76,7 @@
                          <th>Total</th>
                          <th>Sudah-Setor</th>
                          <th><?= number_format($total_sisa); ?></th>
-                         <th>Aksi</th>
+                         <!-- <th>Aksi</th> -->
                     </tr>
                </tfoot>
           </table>
