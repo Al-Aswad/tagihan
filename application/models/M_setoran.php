@@ -92,6 +92,33 @@ class M_setoran extends CI_Model
           $this->db->order_by('status', 'ASC');
           return $this->db->get('setoran_admin')->result();
      }
+
+     function cek_tgl_th($kode_setor)
+     {
+          $this->db->select('pod_time, th');
+          $this->db->where("kode_setor", $kode_setor);
+          return $this->db->get('setoran_admin')->first_row();
+     }
+
+
+     //mengubah status setoran admin 
+     function table_setoran($kode_setor)
+     {
+          $data = array(
+               'status' => 1
+          );
+          $this->db->where('kode_stor', $kode_setor);
+          $this->db->update('setoran_admin', $data);
+     }
+     function table_belum($kode_setor)
+     {
+          $data = array(
+               'status' => 3,
+               'last_update' => date('Y-m-d H:i:s')
+          );
+          $this->db->where('kode_stor', $kode_setor);
+          $this->db->update('setoran_admin', $data);
+     }
 }
 
      /* End of file M_setoran.php */;

@@ -81,6 +81,7 @@ $route['setor-bulk'] = 'setorController/setor_bulk';
 $route['batal-setor/(:num)'] = 'setorController/batal_setor/$1';
 $route['setoran-kurir'] = 'setoranController/setoran_kurir';
 $route['setoran-finance'] = 'setoranController/setoran_finance';
+$route['setoran-cek/(:any)'] = 'setoranController/setoran_cek/$1';
 $route['admin-setor/(:any)'] = 'setoranController/setor_to_finance/$1';
 $route['admin-setor-aksi'] = 'setoranController/aksi';
 $route['tagihan-th'] = 'tagihanController/th';

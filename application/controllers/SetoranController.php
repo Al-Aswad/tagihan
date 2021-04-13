@@ -147,6 +147,21 @@ class SetoranController extends CI_Controller
           $this->load->view('admin_th/v_setoran_to_finance');
           $this->load->view('admin_th/v_footer');
      }
+
+     function setoran_cek($kode_setor)
+     {
+          $cek_tgl_th = $this->m_setoran->cek_tgl_th($kode_setor);
+          // var_dump($cek_tgl_th->th);
+          if ($cek_tgl_th == null) {
+               echo 'Kosong';
+               redirect(site_url('setoran?data=kosong'));
+          } else {
+               // $this->m_setoran->konfirmasi($cek_tgl_th->pod_time, $cek_tgl_th->th);
+          }
+     }
+     // function setoran_cek($kode_setor)
+     // {
+     // }
 }
 
      /* End of file SetoranController.php */;

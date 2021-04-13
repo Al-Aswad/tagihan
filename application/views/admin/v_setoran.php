@@ -59,7 +59,7 @@
                               <td><?= number_format($s->jumlah); ?></td>
                               <td><?= $s->belum_dikonfirmasi; ?></td>
                               <td>
-                                   <a href="http://" class="btn btn-sm btn-primary">Cek</a>
+                                   <a href="<?= site_url('setoran-cek/') . $s->kode_setor  ?>" class="btn btn-sm btn-primary">Cek</a>
                               </td>
                          </tr>
                     <?php }; ?>
