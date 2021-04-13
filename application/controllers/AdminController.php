@@ -4,6 +4,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class AdminController extends CI_Controller
 {
+     public function __construct()
+     {
+          parent::__construct();
+          //Do your magic here
+          if ($this->session->userdata('status') !== 'telah_login') {
+               redirect(site_url('keluar'));
+          }
+
+          date_default_timezone_set('Asia/Makassar');
+     }
 
      public function index()
      {

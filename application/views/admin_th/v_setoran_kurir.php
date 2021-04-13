@@ -58,8 +58,9 @@
                               <td class="text-nowrap"><?= number_format($s->total); ?></td>
                               <td class="text-nowrap"><?= number_format($s->blm_setor); ?></td>
                               <td class="text-nowrap bg-success"><?= number_format($s->sdh_setor); ?></td>
-                              <td>
-                                   <a href="<?= site_url('admin-setor/') . $s->pod_time ?>" class="btn btn-sm btn-primary">Setor</a>
+                              <td> <?php if ($s->sdh_setor > 0) { ?>
+                                        <a href="<?= site_url('admin-setor/') . $s->pod_time ?>" class="btn btn-sm btn-primary">Setor</a>
+                                   <?php }; ?>
                               </td>
                          </tr>
                     <?php }; ?>

@@ -30,7 +30,8 @@ class LoginController extends CI_Controller
                               'pengguna_nik' => $cek->pengguna_nik,
                               'pengguna_nama' => $cek->pengguna_nama,
                               'pengguna_level' => $cek->pengguna_akses,
-                              'pengguna_th' => $cek->pengguna_th
+                              'pengguna_th' => $cek->pengguna_th,
+                              'status' => 'telah_login'
                          );
 
                          $level = $cek->pengguna_akses;
