@@ -27,6 +27,20 @@ class TagihanController extends CI_Controller
           $this->load->view('admin/v_tagihan_filter');
           $this->load->view('admin/v_footer');
      }
+     function th()
+     {
+          $bulan = $this->input->post('bulan');
+          if ($bulan) {
+               $data['tagihan'] = $this->m_tagihan->tagihan_th($bulan);
+          } else {
+               $date = date('Ym');
+               $data['tagihan'] = $this->m_tagihan->tagihan_th($date);
+          }
+          $data['title'] = 'Tagihan Th';
+          $this->load->view('admin_th/v_header', $data);
+          $this->load->view('admin_th/v_tagihan_th');
+          $this->load->view('admin_th/v_footer');
+     }
 }
 
      /* End of file TagihanController.php */;

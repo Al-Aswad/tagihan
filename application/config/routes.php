@@ -78,9 +78,12 @@ $route['history'] = 'historyController';
 $route['admin'] = 'adminController';
 $route['setor/(:num)'] = 'setorController/setor/$1';
 $route['setor-bulk'] = 'setorController/setor_bulk';
+$route['batal-setor/(:num)'] = 'setorController/batal_setor/$1';
 $route['setoran-kurir'] = 'setoranController/setoran_kurir';
+$route['setoran-finance'] = 'setoranController/setoran_finance';
 $route['admin-setor/(:any)'] = 'setoranController/setor_to_finance/$1';
 $route['admin-setor-aksi'] = 'setoranController/aksi';
+$route['tagihan-th'] = 'tagihanController/th';
 
 //pengguna
 $route['pengguna'] = 'penggunaController';

@@ -131,6 +131,22 @@ class SetoranController extends CI_Controller
                $this->setor_to_finance($tgl);
           }
      }
+
+
+     function setoran_finance()
+     {
+          $pod_time = $this->input->get('bulan');
+          if ($pod_time) {
+               $data['setoran'] = $this->m_setoran->admin_finance($pod_time);
+          } else {
+               $bulan = date('Ym');
+               $data['setoran'] = $this->m_setoran->admin_finance($bulan);
+          }
+          $data['title'] = 'Setoran to Finance';
+          $this->load->view('admin_th/v_header', $data);
+          $this->load->view('admin_th/v_setoran_to_finance');
+          $this->load->view('admin_th/v_footer');
+     }
 }
 
      /* End of file SetoranController.php */;

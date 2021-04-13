@@ -117,6 +117,11 @@ class SetorController extends CI_Controller
           } else {
           }
      }
+     function batal_setor($id)
+     {
+          $this->m_setor->batal_setor($id);
+          redirect(site_url('admin?batal-setor=Sukses'));
+     }
 }
 
      /* End of file SudahController.php */;

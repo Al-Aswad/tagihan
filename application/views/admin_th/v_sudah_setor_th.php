@@ -32,7 +32,7 @@
                                         <td><?= $b->type; ?></td>
                                         <td><?= number_format($b->fee); ?></td>
                                         <td>
-                                             <a href="<?= site_url('') . 'home/belum-setor-th/' . $b->id ?>" class="btn btn-sm btn-primary">Cek</a>
+                                             <a href="<?= site_url('') . 'batal-setor/' . $b->id ?>" class="btn btn-sm btn-primary">Batalkan</a>
                                         </td>
                                    </tr>
                               <?php

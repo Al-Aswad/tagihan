@@ -29,10 +29,9 @@
           </form>
      </div>
 </div>
-
 <div class="card">
      <div class="card-header">
-          <h3 class="card-title">Tagihan berdasarkan TH dan Tanggan POD-Time (Bulan Berjalan)</h3>
+          <h3 class="card-title">Tagihan berdasarkan TH dan Tanggan POD-Time (Filter bulan)</h3>
      </div>
      <!-- /.card-header -->
      <div class="card-body pt-0">
@@ -45,7 +44,6 @@
                          <th class="bg-warning text-white">Total</th>
                          <th class="bg-success">Sudah-Setor</th>
                          <th class="bg-primary">Sisa-Tagihan</th>
-                         <th>Aksi</th>
                     </tr>
                </thead>
                <tbody>
@@ -59,9 +57,6 @@
                               <td class="bg-warning"><?= number_format($t->total); ?></td>
                               <td class="bg-success"><?= number_format($t->terkonfirmasi); ?></td>
                               <td class="bg-primary"><?= number_format($t->total - $t->terkonfirmasi); ?></td>
-                              <td>
-                                   <a href="http://" class="btn btn-sm btn-primary">Cek</a>
-                              </td>
                          </tr>
                     <?php
                          $total_sisa += $t->total - $t->terkonfirmasi;
@@ -73,10 +68,9 @@
                          <th>NO</th>
                          <th>TH</th>
                          <th>POD-Time</th>
-                         <th>Total</th>
-                         <th>Sudah-Setor</th>
-                         <th><?= number_format($total_sisa); ?></th>
-                         <th>Aksi</th>
+                         <th class="bg-warning text-white">Total</th>
+                         <th class="bg-success">Sudah-Setor</th>
+                         <th class="bg-primary"><?= number_format($total_sisa); ?></th>
                     </tr>
                </tfoot>
           </table>

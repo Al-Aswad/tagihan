@@ -77,7 +77,7 @@
 <script src="<?= base_url('') . 'assets/' ?>dist/js/pages/dashboard2.js"></script>
 <script>
      $(function() {
-          $("#example1").DataTable({
+          $("#example11").DataTable({
                "responsive": true,
                "lengthChange": false,
                "autoWidth": false,

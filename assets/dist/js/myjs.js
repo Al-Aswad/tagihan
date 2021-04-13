@@ -1,6 +1,8 @@
 var table;
 $(document).ready(function() {
     table = $('#example1').DataTable({
+        "autoWidth": true,
+        "responsive": true,
         //Set column definition initialisation properties.
         "columnDefs": [{
             "targets": [0], //first column / numbering column

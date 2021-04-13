@@ -32,7 +32,7 @@
 
 <div class="card">
      <div class="card-header">
-          <h3 class="card-title">Tagihan berdasarkan TH dan Tanggan POD-Time (Bulan Berjalan)</h3>
+          <h3 class="card-title">Setoran ADMIN berdasarkan POD-Time (Bulan Berjalan)</h3>
      </div>
      <!-- /.card-header -->
      <div class="card-body pt-0">
@@ -41,42 +41,39 @@
                     <tr>
                          <th>NO</th>
                          <th>TH</th>
-                         <th>POD-Time</th>
-                         <th class="bg-warning text-white">Total</th>
-                         <th class="bg-success">Sudah-Setor</th>
-                         <th class="bg-primary">Sisa-Tagihan</th>
-                         <th>Aksi</th>
+                         <th class="nowrap">POD-Time</th>
+                         <th>Tanggal-Setor</th>
+                         <th>Jumlah-Setoran</th>
+                         <th>Status</th>
                     </tr>
                </thead>
                <tbody>
                     <?php $no = 1;
-                    $total_sisa = 0;
-                    foreach ($tagihan as $t) { ?>
-                         <tr>
+                    foreach ($setoran as $s) {
+                         if ($s->status == 0) {
+                              $s->status = "Pending";
+                              $cls = "warning";
+                         } else {
+                              $s->status = "Terkonfirmasi";
+                              $cls = "success";
+                         } ?> <tr>
                               <td><?= $no++; ?></td>
-                              <td><?= $t->th; ?></td>
-                              <td><?= $t->pod_time; ?></td>
-                              <td class="bg-warning"><?= number_format($t->total); ?></td>
-                              <td class="bg-success"><?= number_format($t->terkonfirmasi); ?></td>
-                              <td class="bg-primary"><?= number_format($t->total - $t->terkonfirmasi); ?></td>
-                              <td>
-                                   <a href="http://" class="btn btn-sm btn-primary">Cek</a>
-                              </td>
+                              <td><?= $s->th ?></td>
+                              <td><?= $s->pod_time ?></td>
+                              <td><?= $s->create_at ?></td>
+                              <td><?= number_format($s->jumlah) ?></td>
+                              <td class="badge bg-<?= $cls; ?> text-white float-center"><?= $s->status ?></td>
                          </tr>
-                    <?php
-                         $total_sisa += $t->total - $t->terkonfirmasi;
-                    }
-                    ?>
+                    <?php }; ?>
                </tbody>
                <tfoot>
                     <tr>
                          <th>NO</th>
                          <th>TH</th>
-                         <th>POD-Time</th>
-                         <th>Total</th>
-                         <th>Sudah-Setor</th>
-                         <th><?= number_format($total_sisa); ?></th>
-                         <th>Aksi</th>
+                         <th class="nowrap">POD-Time</th>
+                         <th>Tanggal-Setor</th>
+                         <th>Jumlah-Setoran</th>
+                         <th>Status</th>
                     </tr>
                </tfoot>
           </table>

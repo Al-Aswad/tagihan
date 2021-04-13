@@ -83,6 +83,15 @@ class M_setoran extends CI_Model
      {
           $this->db->insert('setoran_admin', $data);
      }
+
+     function admin_finance($bulan)
+     {
+          $th = $this->session->userdata('pengguna_th');
+          $this->db->where('th', $th);
+          $this->db->where('EXTRACT(YEAR_MONTH FROM pod_time)=', $bulan);
+          $this->db->order_by('status', 'ASC');
+          return $this->db->get('setoran_admin')->result();
+     }
 }
 
      /* End of file M_setoran.php */;

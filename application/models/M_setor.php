@@ -52,6 +52,13 @@ class M_setor extends CI_Model
           $this->db->where('id', $id);
           $this->db->update('belum_setor');
      }
+     function batal_setor($id)
+     {
+          $this->db->set('status', 0);
+          $this->db->set('last_update', date('Y-m-d H:i:s'));
+          $this->db->where('id', $id);
+          $this->db->update('belum_setor');
+     }
 
      //cek id
      function get_id($th, $pod_time)

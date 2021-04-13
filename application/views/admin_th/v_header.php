@@ -33,11 +33,11 @@
      <script src="<?= base_url('') . 'assets/' ?>datepicker/boostrap-datepicker.min.js"></script>
      <link rel="stylesheet" href="<?= base_url('') . 'assets/' ?>dist/css/mycss.css">
 
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> -->
 
 
 
-     <!-- <script src="https://netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script> -->
+     <script src="https://netdna.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
 <body class="hold-transition text-sm">
      <div class="wrapper">
@@ -156,6 +156,13 @@
                                              </a>
                                         </li>
                                    </ul>
+                                   <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                             <a href="<?= base_url('') . 'setoran-finance' ?>" class="nav-link">
+                                                  <p>Setoran to Finance</p>
+                                             </a>
+                                        </li>
+                                   </ul>
                               </li>
                               <li class="nav-item">
                                    <a href="#" class="nav-link">
@@ -167,15 +174,8 @@
                                    </a>
                                    <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                             <a href="<?= base_url('') . 'history' ?>" class="nav-link">
-                                                  <p>Setoran from Kurir</p>
-                                             </a>
-                                        </li>
-                                   </ul>
-                                   <ul class="nav nav-treeview">
-                                        <li class="nav-item">
-                                             <a href="<?= base_url('') . 'history' ?>" class="nav-link">
-                                                  <p>Setoran to Finance</p>
+                                             <a href="<?= base_url('') . 'tagihan-th' ?>" class="nav-link">
+                                                  <p>Tagihan</p>
                                              </a>
                                         </li>
                                    </ul>
