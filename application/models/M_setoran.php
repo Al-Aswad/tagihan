@@ -8,10 +8,10 @@ class M_setoran extends CI_Model
      function setoran()
      {
           $bulan = date('Ym');
-          return $this->db->query("SELECT *, 
-          SUM(jumlah) as total, 
+          return $this->db->query("SELECT *,
+          Sum(jumlah) as total,
           SUM(case WHEN status=0 THEN 1 ELSE 0 END) as belum_dikonfirmasi FROM `setoran_admin` 
-          where EXTRACT(YEAR_MONTH FROM pod_time)='$bulan' GROUP BY th,pod_time ORDER BY `belum_dikonfirmasi` DESC")->result();
+          where EXTRACT(YEAR_MONTH FROM pod_time)='$bulan' GROUP BY th, pod_time ORDER BY `belum_dikonfirmasi` DESC")->result();
      }
      function setoran_kurir()
      {
@@ -120,14 +120,27 @@ class M_setoran extends CI_Model
           $this->db->update('setoran_admin', $data);
      }
 
-     function konfirmasi($tgl, $th)
+     function setoran_cek($tgl, $th)
      {
-          // $this->db->select('waybill');
-          // $this->db->where('th', $th);
-          // $this->db->where('pod_time', $tgl);
-          // return $this->db->get('belum_setor')->result();
           return $this->db->query("SELECT *
-          FROM setoran_admin WHERE th='$th' and  pod_time='$tgl' and status=0 GROUP BY pod_time")->result();
+          FROM setoran_admin WHERE th='$th' and  pod_time='$tgl' ")->result();
+     }
+     function konfirmasi_admin($kode_setor)
+     {
+          $data = array(
+               'status' => 1,
+          );
+          $this->db->where('kode_setor', $kode_setor);
+          $this->db->update('setoran_admin', $data);
+     }
+     function konfirmasi_belum($kode_setor)
+     {
+          $data = array(
+               'status' => 3,
+               'last_update' => date('Y-m-d H:i:s')
+          );
+          $this->db->where('kode_setor', $kode_setor);
+          $this->db->update('belum_setor', $data);
      }
 }
 

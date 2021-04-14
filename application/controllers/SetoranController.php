@@ -156,12 +156,18 @@ class SetoranController extends CI_Controller
                echo 'Kosong';
                redirect(site_url('setoran?data=kosong'));
           } else {
-               $data['setoran_cek'] = $this->m_setoran->konfirmasi($cek_tgl_th->pod_time, $cek_tgl_th->th);
+               $data['setoran_cek'] = $this->m_setoran->setoran_cek($cek_tgl_th->pod_time, $cek_tgl_th->th);
                $data['title'] = 'Konfirmasi Storan';
                $this->load->view('admin/v_header', $data);
                $this->load->view('admin/v_konfirmasi');
                $this->load->view('admin/v_footer');
           }
+     }
+
+     function konfirmasi($kode_setor)
+     {
+          $this->m_setoran->konfirmasi_admin($kode_setor);
+          $this->m_setoran->konfirmasi_belum($kode_setor);
      }
      // function setoran_cek($kode_setor)
      // {

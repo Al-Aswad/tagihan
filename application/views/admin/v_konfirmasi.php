@@ -32,7 +32,7 @@
                                         <td><?= $b->bukti_setoran; ?></td>
                                         <td><?= $b->keterangan; ?></td>
                                         <td>
-                                             <a href="<?= site_url('') . 'konfirmasi' . $b->kode_setor ?>" class="btn btn-sm btn-primary">Konfirmasi</a>
+                                             <a href="<?= site_url('') . 'konfirmasi/' . $b->kode_setor ?>" class="btn btn-sm btn-primary">Konfirmasi</a>
                                         </td>
                                    </tr>
                               <?php

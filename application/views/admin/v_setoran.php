@@ -54,9 +54,9 @@
                          <tr>
                               <td><?= $no++; ?></td>
                               <td><?= $s->th; ?></td>
-                              <td class="text-nowrap"><?= $s->create_at; ?></td>
                               <td class="text-nowrap"><?= $s->pod_time; ?></td>
-                              <td><?= number_format($s->jumlah); ?></td>
+                              <td class="text-nowrap"><?= $s->create_at; ?></td>
+                              <td><?= number_format($s->total); ?></td>
                               <td><?= $s->belum_dikonfirmasi; ?></td>
                               <td>
                                    <a href="<?= site_url('setoran-cek/') . $s->kode_setor  ?>" class="btn btn-sm btn-primary">Cek</a>

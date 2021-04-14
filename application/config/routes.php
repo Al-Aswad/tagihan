@@ -71,6 +71,7 @@ $route['home/sudah-setor-th/(:any)'] = 'setorController/sudah_setor_th/$1';
 $route['tagihan'] = 'tagihanController';
 
 $route['setoran'] = 'setoranController';
+$route['konfirmasi/(:any)'] = 'setoranController/konfirmasi/$1';
 
 $route['history'] = 'historyController';
 
