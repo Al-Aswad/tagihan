@@ -1,13 +1,17 @@
-<!-- Info boxes -->
+<h5 class="mt-4 mb-2">Jumlah Berdasarkan Awb <code></code></h5>
 <div class="row">
-	<div class="col-12 col-sm-6 col-md-3">
-		<div class="info-box">
-			<span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+	<div class="col-md-3 col-sm-6 col-12">
+		<div class="info-box bg-gradient-info">
+			<span class="info-box-icon"><i class="far fa-bookmark"></i></span>
 
 			<div class="info-box-content">
-				<span class="info-box-text">COD</span>
-				<span class="info-box-number">
-					<?= $awb->cod; ?>
+				<span class="info-box-text">PAD</span>
+				<span class="info-box-number"><?= $awb->pad; ?></span>
+				<div class="progress">
+					<div class="progress-bar" style="width: 70%"></div>
+				</div>
+				<span class="progress-description">
+					Belum di Setor <?= $awb->b_pad; ?>
 				</span>
 			</div>
 			<!-- /.info-box-content -->
@@ -15,34 +19,50 @@
 		<!-- /.info-box -->
 	</div>
 	<!-- /.col -->
-	<div class="col-12 col-sm-6 col-md-3">
-		<div class="info-box mb-3">
-			<span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+	<div class="col-md-3 col-sm-6 col-12">
+		<div class="info-box bg-gradient-success">
+			<span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>
 
 			<div class="info-box-content">
-				<span class="info-box-text">PAD</span>
-				<span class="info-box-number"><?= $awb->pad; ?></span>
-			</div>
-		</div>
-	</div>
-	<div class="clearfix hidden-md-up"></div>
-	<div class="col-12 col-sm-6 col-md-3">
-		<div class="info-box mb-3">
-			<span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
-
-			<div class="info-box-content">
-				<span class="info-box-text">CASH</span>
+				<span class="info-box-text">Cash</span>
 				<span class="info-box-number"><?= $awb->cash; ?></span>
+
+				<div class="progress">
+					<div class="progress-bar" style="width: 70%"></div>
+				</div>
+				<span class="progress-description">
+					Belum di Setor <?= $awb->b_cash; ?>
+				</span>
 			</div>
 		</div>
 	</div>
-	<div class="col-12 col-sm-6 col-md-3">
-		<div class="info-box mb-3">
-			<span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
-
+	<div class="col-md-3 col-sm-6 col-12">
+		<div class="info-box bg-gradient-warning">
+			<span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>
+			<div class="info-box-content">
+				<span class="info-box-text">COD</span>
+				<span class="info-box-number"><?= $awb->cod; ?></span>
+				<div class="progress">
+					<div class="progress-bar" style="width: 70%"></div>
+				</div>
+				<span class="progress-description">
+					Belum di Setor <?= $awb->b_cod; ?>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3 col-sm-6 col-12">
+		<div class="info-box bg-gradient-danger">
+			<span class="info-box-icon"><i class="fas fa-comments"></i></span>
 			<div class="info-box-content">
 				<span class="info-box-text">Total</span>
 				<span class="info-box-number"><?= $awb->semua_awb; ?></span>
+				<div class="progress">
+					<div class="progress-bar" style="width: 70%"></div>
+				</div>
+				<span class="progress-description">
+					Belum di Setor <?= $awb->b_semua; ?>
+				</span>
 			</div>
 		</div>
 	</div>

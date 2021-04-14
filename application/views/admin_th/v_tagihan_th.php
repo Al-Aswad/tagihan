@@ -41,6 +41,9 @@
                          <th>NO</th>
                          <th>TH</th>
                          <th>POD-Time</th>
+                         <th>COD</th>
+                         <th>PAD</th>
+                         <th>CASH</th>
                          <th class="bg-warning text-white">Total</th>
                          <th class="bg-success">Sudah-Setor</th>
                          <th class="bg-primary">Sisa-Tagihan</th>
@@ -54,6 +57,9 @@
                               <td><?= $no++; ?></td>
                               <td><?= $t->th; ?></td>
                               <td><?= $t->pod_time; ?></td>
+                              <td class="bg-warning"><?= number_format($t->cod); ?></td>
+                              <td class="bg-warning"><?= number_format($t->pad); ?></td>
+                              <td class="bg-warning"><?= number_format($t->cash); ?></td>
                               <td class="bg-warning"><?= number_format($t->total); ?></td>
                               <td class="bg-success"><?= number_format($t->terkonfirmasi); ?></td>
                               <td class="bg-primary"><?= number_format($t->total - $t->terkonfirmasi); ?></td>
@@ -68,6 +74,9 @@
                          <th>NO</th>
                          <th>TH</th>
                          <th>POD-Time</th>
+                         <th>COD</th>
+                         <th>PAD</th>
+                         <th>CASH</th>
                          <th class="bg-warning text-white">Total</th>
                          <th class="bg-success">Sudah-Setor</th>
                          <th class="bg-primary"><?= number_format($total_sisa); ?></th>

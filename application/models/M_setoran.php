@@ -25,7 +25,7 @@ class M_setoran extends CI_Model
           SUM( CASE WHEN TYPE = 'PAD' AND status=1 THEN fee ELSE 0 END ) AS s_pad, 
           SUM( CASE WHEN TYPE = 'Cash' AND status=1 THEN fee ELSE 0 END ) AS s_cash, 
           SUM( CASE WHEN TYPE = 'Monthly' AND status=1 THEN fee ELSE 0 END ) AS s_cod
-          FROM belum_setor WHERE th='$th' and EXTRACT(YEAR_MONTH FROM pod_time)='$bulan' GROUP BY pod_time")->result();
+          FROM belum_setor WHERE th='$th' and EXTRACT(YEAR_MONTH FROM pod_time)='$bulan' GROUP BY pod_time ORDER BY sdh_setor DESC")->result();
      }
      function filter($bulan)
      {
@@ -44,7 +44,7 @@ class M_setoran extends CI_Model
           SUM( CASE WHEN TYPE = 'PAD' AND status=1 THEN fee ELSE 0 END ) AS s_pad, 
           SUM( CASE WHEN TYPE = 'Cash' AND status=1 THEN fee ELSE 0 END ) AS s_cash, 
           SUM( CASE WHEN TYPE = 'Monthly' AND status=1 THEN fee ELSE 0 END ) AS s_cod
-          FROM belum_setor WHERE th='$th' and EXTRACT(YEAR_MONTH FROM pod_time)='$bulan' GROUP BY pod_time")->result();
+          FROM belum_setor WHERE th='$th' and EXTRACT(YEAR_MONTH FROM pod_time)='$bulan' GROUP BY pod_time ORDER BY sdh_setor DESC")->result();
      }
 
      function setor_to_finance($id)
@@ -118,6 +118,16 @@ class M_setoran extends CI_Model
           );
           $this->db->where('kode_stor', $kode_setor);
           $this->db->update('setoran_admin', $data);
+     }
+
+     function konfirmasi($tgl, $th)
+     {
+          // $this->db->select('waybill');
+          // $this->db->where('th', $th);
+          // $this->db->where('pod_time', $tgl);
+          // return $this->db->get('belum_setor')->result();
+          return $this->db->query("SELECT *
+          FROM setoran_admin WHERE th='$th' and  pod_time='$tgl' and status=0 GROUP BY pod_time")->result();
      }
 }
 

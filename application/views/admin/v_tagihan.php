@@ -51,6 +51,8 @@
                <tbody>
                     <?php $no = 1;
                     $total_sisa = 0;
+                    $total = 0;
+                    $total_setor = 0;
                     foreach ($tagihan as $t) { ?>
                          <tr>
                               <td><?= $no++; ?></td>
@@ -64,6 +66,8 @@
                               </td> -->
                          </tr>
                     <?php
+                         $total += $t->total;
+                         $total_setor += $t->terkonfirmasi;
                          $total_sisa += $t->total - $t->terkonfirmasi;
                     }
                     ?>
@@ -73,8 +77,8 @@
                          <th>NO</th>
                          <th>TH</th>
                          <th>POD-Time</th>
-                         <th>Total</th>
-                         <th>Sudah-Setor</th>
+                         <th><?= number_format($total); ?></th>
+                         <th><?= number_format($total_setor); ?></th>
                          <th><?= number_format($total_sisa); ?></th>
                          <!-- <th>Aksi</th> -->
                     </tr>

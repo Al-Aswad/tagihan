@@ -43,7 +43,7 @@ class SetoranController extends CI_Controller
           } else {
                $data['setoran'] = $this->m_setoran->filter_th($bulan);
           }
-          $data['title'] = 'Setoran Kurir';
+          $data['title'] = 'Setoran dari admin ke Kurir';
           $this->load->view('admin_th/v_header', $data);
           $this->load->view('admin_th/v_setoran_kurir');
           $this->load->view('admin_th/v_footer');
@@ -156,7 +156,11 @@ class SetoranController extends CI_Controller
                echo 'Kosong';
                redirect(site_url('setoran?data=kosong'));
           } else {
-               // $this->m_setoran->konfirmasi($cek_tgl_th->pod_time, $cek_tgl_th->th);
+               $data['setoran_cek'] = $this->m_setoran->konfirmasi($cek_tgl_th->pod_time, $cek_tgl_th->th);
+               $data['title'] = 'Konfirmasi Storan';
+               $this->load->view('admin/v_header', $data);
+               $this->load->view('admin/v_konfirmasi');
+               $this->load->view('admin/v_footer');
           }
      }
      // function setoran_cek($kode_setor)

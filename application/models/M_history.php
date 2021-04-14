@@ -13,10 +13,10 @@ class M_history extends CI_Model
           SUM( CASE WHEN TYPE = 'Monthly'  THEN 1 ELSE 0 END ) AS cod, 
           SUM( CASE WHEN TYPE = 'Cash'  THEN 1 ELSE 0 END ) AS cash, 
           SUM( CASE WHEN waybill!='' THEN 1 ELSE 0 END) AS semua, 
-          SUM( CASE WHEN TYPE = 'PAD' AND status!=4 THEN 1 ELSE 0 END ) AS b_pad, 
-          SUM( CASE WHEN TYPE = 'Monthly' AND status!=4 THEN 1 ELSE 0 END ) AS b_cod, 
-          SUM( CASE WHEN TYPE = 'Cash' AND status!=4 THEN 1 ELSE 0 END ) AS b_cash, 
-          SUM( CASE WHEN status!=4 THEN 1 ELSE 0 END) AS b_semua FROM `belum_setor` 
+          SUM( CASE WHEN TYPE = 'PAD' AND status!=3 THEN 1 ELSE 0 END ) AS b_pad, 
+          SUM( CASE WHEN TYPE = 'Monthly' AND status!=3 THEN 1 ELSE 0 END ) AS b_cod, 
+          SUM( CASE WHEN TYPE = 'Cash' AND status!=3 THEN 1 ELSE 0 END ) AS b_cash, 
+          SUM( CASE WHEN status!=3 THEN 1 ELSE 0 END) AS b_semua FROM `belum_setor` 
           WHERE EXTRACT(YEAR_MONTH FROM pod_time)='$bulan'")->row();
      }
      function historyawb_filter($bulan)
@@ -26,10 +26,10 @@ class M_history extends CI_Model
           SUM( CASE WHEN TYPE = 'Monthly'  THEN 1 ELSE 0 END ) AS cod, 
           SUM( CASE WHEN TYPE = 'Cash'  THEN 1 ELSE 0 END ) AS cash, 
           SUM( CASE WHEN waybill!='' THEN 1 ELSE 0 END) AS semua, 
-          SUM( CASE WHEN TYPE = 'PAD' AND status=4 THEN 1 ELSE 0 END ) AS s_pad, 
-          SUM( CASE WHEN TYPE = 'Monthly' AND status=4 THEN 1 ELSE 0 END ) AS s_cod, 
-          SUM( CASE WHEN TYPE = 'Cash' AND status=4 THEN 1 ELSE 0 END ) AS s_cash, 
-          SUM( CASE WHEN status=4 THEN 1 ELSE 0 END) AS s_semua FROM `belum_setor` 
+          SUM( CASE WHEN TYPE = 'PAD' AND status=3 THEN 1 ELSE 0 END ) AS s_pad, 
+          SUM( CASE WHEN TYPE = 'Monthly' AND status=3 THEN 1 ELSE 0 END ) AS s_cod, 
+          SUM( CASE WHEN TYPE = 'Cash' AND status=3 THEN 1 ELSE 0 END ) AS s_cash, 
+          SUM( CASE WHEN status=3 THEN 1 ELSE 0 END) AS s_semua FROM `belum_setor` 
           WHERE EXTRACT(YEAR_MONTH FROM pod_time)='$bulan'")->row();
      }
      function historynominal()

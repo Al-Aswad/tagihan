@@ -107,7 +107,7 @@
      </div>
      <!-- /.card-header -->
      <div class="card-body pt-0">
-          <table id="example1" class="table table-bordered table-striped" style="width: 100%;">
+          <table id="example1" class="table table-bordered table-striped table-hover" style="width: 100%;">
                <thead>
                     <tr>
                          <th>NO</th>
@@ -130,10 +130,10 @@
                          <tr>
                               <td><?= $no++; ?></td>
                               <td><?= $h->pod_time; ?></td>
-                              <td><?= number_format($h->pad); ?></td>
-                              <td><?= number_format($h->cash); ?></td>
-                              <td><?= number_format($h->cod); ?></td>
-                              <td><?= number_format($h->semua); ?></td>
+                              <td class="bg-warning text-white"><?= number_format($h->pad); ?></td>
+                              <td class="bg-warning text-white"><?= number_format($h->cash); ?></td>
+                              <td class="bg-warning text-white"><?= number_format($h->cod); ?></td>
+                              <td class="bg-warning text-white"><?= number_format($h->semua); ?></td>
                               <td><?= number_format($h->sudah_setor); ?></td>
                               <td><?= number_format($h->belum_setor); ?></td>
                               <td>
@@ -155,8 +155,8 @@
                          <th>Cash</th>
                          <th>COD</th>
                          <th class="bg-warning text-white"><?= number_format($total); ?></th>
-                         <th class="bg-primary"><?= number_format($total_sudah_setor); ?></th>
-                         <th class="bg-success"><?= number_format($total_belum_setor); ?></th>
+                         <th class="bg-success"><?= number_format($total_sudah_setor); ?></th>
+                         <th class="bg-primary"><?= number_format($total_belum_setor); ?></th>
                          <th>Aksi</th>
                     </tr>
                </tfoot>
