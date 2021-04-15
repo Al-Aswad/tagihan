@@ -18,15 +18,15 @@ class TagihanController extends CI_Controller
           $this->load->view('admin/v_tagihan');
           $this->load->view('admin/v_footer');
      }
-     function filter()
-     {
-          $bulan = $this->input->get('bulan');
-          $data['tagihan'] = $this->m_tagihan->filter($bulan);
-          $data['title'] = 'Tagihan Filter';
-          $this->load->view('admin/v_header', $data);
-          $this->load->view('admin/v_tagihan_filter');
-          $this->load->view('admin/v_footer');
-     }
+     // function filter()
+     // {
+     //      $bulan = $this->input->get('bulan');
+     //      $data['tagihan'] = $this->m_tagihan->filter($bulan);
+     //      $data['title'] = 'Tagihan Filter';
+     //      $this->load->view('admin/v_header', $data);
+     //      $this->load->view('admin/v_tagihan_filter');
+     //      $this->load->view('admin/v_footer');
+     // }
      function th()
      {
           $bulan = $this->input->post('bulan');

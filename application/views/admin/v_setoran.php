@@ -57,7 +57,10 @@
                               <td class="text-nowrap"><?= $s->pod_time; ?></td>
                               <td class="text-nowrap"><?= $s->create_at; ?></td>
                               <td><?= number_format($s->total); ?></td>
-                              <td><?= $s->belum_dikonfirmasi; ?></td>
+                              <!-- <td><?= $s->jumlah . ' of ' . $s->belum_dikonfirmasi ?></td> -->
+                              <td><small class="badge badge-warning"><?= $s->belum_dikonfirmasi ?> <i class="far fa-clock"></i></small>
+                                   <small class="badge badge-success"><?= $s->jumlah ?> <i class="fas fa-check"></i></small>
+                              </td>
                               <td>
                                    <a href="<?= site_url('setoran-cek/') . $s->kode_setor  ?>" class="btn btn-sm btn-primary">Cek</a>
                               </td>

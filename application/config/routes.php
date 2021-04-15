@@ -72,6 +72,7 @@ $route['tagihan'] = 'tagihanController';
 
 $route['setoran'] = 'setoranController';
 $route['konfirmasi/(:any)'] = 'setoranController/konfirmasi/$1';
+$route['batal-konfirmasi/(:any)'] = 'setoranController/batal_konfirmasi/$1';
 
 $route['history'] = 'historyController';
 

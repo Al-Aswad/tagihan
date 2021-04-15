@@ -49,20 +49,20 @@
                </thead>
                <tbody>
                     <?php $no = 1;
-                    foreach ($setoran as $s) {
-                         if ($s->status == 0) {
-                              $s->status = "Pending";
-                              $cls = "warning";
-                         } else {
-                              $s->status = "Terkonfirmasi";
-                              $cls = "success";
-                         } ?> <tr>
+                    foreach ($setoran as $s) { ?>
+                         <tr>
                               <td><?= $no++; ?></td>
                               <td><?= $s->th ?></td>
                               <td><?= $s->pod_time ?></td>
                               <td><?= $s->create_at ?></td>
                               <td><?= number_format($s->jumlah) ?></td>
-                              <td class="badge bg-<?= $cls; ?> text-white float-center"><?= $s->status ?></td>
+                              <td><?php if ($s->status == 0) { ?>
+                                        <small class="badge badge-warning"><i class="far fa-clock"></i> Pending</small>
+                                   <?php
+                                   } else { ?>
+                                        <small class="badge badge-success"><i class="fas fa-check"></i> Oke</small>
+                                   <?php } ?>
+                              </td>
                          </tr>
                     <?php }; ?>
                </tbody>

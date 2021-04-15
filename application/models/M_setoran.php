@@ -10,9 +10,19 @@ class M_setoran extends CI_Model
           $bulan = date('Ym');
           return $this->db->query("SELECT *,
           Sum(jumlah) as total,
+          SUM(status) as jumlah,
           SUM(case WHEN status=0 THEN 1 ELSE 0 END) as belum_dikonfirmasi FROM `setoran_admin` 
           where EXTRACT(YEAR_MONTH FROM pod_time)='$bulan' GROUP BY th, pod_time ORDER BY `belum_dikonfirmasi` DESC")->result();
      }
+     function filter($bulan)
+     {
+          return $this->db->query("SELECT *, 
+          SUM(jumlah) as total, 
+          SUM(status) as jumlah,
+          SUM(case WHEN status=0 THEN 1 ELSE 0 END) as belum_dikonfirmasi FROM `setoran_admin` 
+          where EXTRACT(YEAR_MONTH FROM pod_time)='$bulan' GROUP BY th,pod_time ORDER BY `belum_dikonfirmasi` DESC")->result();
+     }
+
      function setoran_kurir()
      {
           $bulan = date('Ym');
@@ -27,13 +37,7 @@ class M_setoran extends CI_Model
           SUM( CASE WHEN TYPE = 'Monthly' AND status=1 THEN fee ELSE 0 END ) AS s_cod
           FROM belum_setor WHERE th='$th' and EXTRACT(YEAR_MONTH FROM pod_time)='$bulan' GROUP BY pod_time ORDER BY sdh_setor DESC")->result();
      }
-     function filter($bulan)
-     {
-          return $this->db->query("SELECT *, 
-          SUM(jumlah) as total, 
-          SUM(case WHEN status=0 THEN 1 ELSE 0 END) as belum_dikonfirmasi FROM `setoran_admin` 
-          where EXTRACT(YEAR_MONTH FROM pod_time)='$bulan' GROUP BY th,pod_time ORDER BY `belum_dikonfirmasi` DESC")->result();
-     }
+
      function filter_th($bulan)
      {
           $th = $this->session->userdata('pengguna_th');
@@ -90,6 +94,7 @@ class M_setoran extends CI_Model
           $this->db->where('th', $th);
           $this->db->where('EXTRACT(YEAR_MONTH FROM pod_time)=', $bulan);
           $this->db->order_by('status', 'ASC');
+          $this->db->order_by('create_at', 'DESC');
           return $this->db->get('setoran_admin')->result();
      }
 
@@ -123,7 +128,7 @@ class M_setoran extends CI_Model
      function setoran_cek($tgl, $th)
      {
           return $this->db->query("SELECT *
-          FROM setoran_admin WHERE th='$th' and  pod_time='$tgl' ")->result();
+          FROM setoran_admin WHERE th='$th' and  pod_time='$tgl' ORDER BY status ASC")->result();
      }
      function konfirmasi_admin($kode_setor)
      {
@@ -137,6 +142,23 @@ class M_setoran extends CI_Model
      {
           $data = array(
                'status' => 3,
+               'last_update' => date('Y-m-d H:i:s')
+          );
+          $this->db->where('kode_setor', $kode_setor);
+          $this->db->update('belum_setor', $data);
+     }
+     function batal_konfirmasi_admin($kode_setor)
+     {
+          $data = array(
+               'status' => 0,
+          );
+          $this->db->where('kode_setor', $kode_setor);
+          $this->db->update('setoran_admin', $data);
+     }
+     function batal_konfirmasi_belum($kode_setor)
+     {
+          $data = array(
+               'status' => 2,
                'last_update' => date('Y-m-d H:i:s')
           );
           $this->db->where('kode_setor', $kode_setor);

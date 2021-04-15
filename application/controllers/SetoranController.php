@@ -168,6 +168,13 @@ class SetoranController extends CI_Controller
      {
           $this->m_setoran->konfirmasi_admin($kode_setor);
           $this->m_setoran->konfirmasi_belum($kode_setor);
+          $this->setoran_cek($kode_setor);
+     }
+     function batal_konfirmasi($kode_setor)
+     {
+          $this->m_setoran->batal_konfirmasi_admin($kode_setor);
+          $this->m_setoran->batal_konfirmasi_belum($kode_setor);
+          $this->setoran_cek($kode_setor);
      }
      // function setoran_cek($kode_setor)
      // {

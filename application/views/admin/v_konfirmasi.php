@@ -14,6 +14,7 @@
                                    <th>POD-Time</th>
                                    <th>Tanggal-setor</th>
                                    <th>Jumlah</th>
+                                   <th>Status</th>
                                    <th>Bukti Setoran</th>
                                    <th>Ket</th>
                                    <th>Aksi</th>
@@ -29,10 +30,21 @@
                                         <td><?= $b->pod_time; ?></td>
                                         <td><?= $b->create_at; ?></td>
                                         <td><?= number_format($b->jumlah); ?></td>
+                                        <td><?php if ($b->status == 0) { ?>
+                                                  <small class="badge badge-warning"><i class="far fa-clock"></i> Pending</small>
+                                             <?php
+                                             } else { ?>
+                                                  <small class="badge badge-success"><i class="fas fa-check"></i> Oke</small>
+                                             <?php } ?>
+                                        </td>
                                         <td><?= $b->bukti_setoran; ?></td>
                                         <td><?= $b->keterangan; ?></td>
                                         <td>
-                                             <a href="<?= site_url('') . 'konfirmasi/' . $b->kode_setor ?>" class="btn btn-sm btn-primary">Konfirmasi</a>
+                                             <?php if ($b->status == 0) { ?>
+                                                  <a href="<?= site_url('') . 'konfirmasi/' . $b->kode_setor ?>" class="btn btn-sm btn-primary">Konfirmasi</a>
+                                             <?php } else { ?>
+                                                  <a href="<?= site_url('') . 'batal-konfirmasi/' . $b->kode_setor ?>" class="btn btn-sm btn-primary">Batal</a>
+                                             <?php } ?>
                                         </td>
                                    </tr>
                               <?php
@@ -46,6 +58,7 @@
                                    <th>POD-Time</th>
                                    <th>Tanggal-setor</th>
                                    <th><?= number_format($total); ?></th>
+                                   <th>Status</th>
                                    <th>Bukti Setoran</th>
                                    <th>Ket</th>
                                    <th>Aksi</th>
