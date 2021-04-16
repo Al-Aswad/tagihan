@@ -140,7 +140,7 @@ class UploadController extends CI_Controller
                $jumlah = 0;
                foreach ($sheetData as $x  => $excel) {
                     //skip judul table
-                    $p = $excel['1'];
+                    $p = $excel['1']; //shipping date
                     $id_import = 'cash-' . date('Ymd') . '-' . $nomor;
                     $pod = date("Y-m-d", strtotime($p));
                     if ($x <= 0) {
@@ -150,12 +150,12 @@ class UploadController extends CI_Controller
                          continue; // Jika monthly atau PAD maka tdk di simpan
                     }
                     $data = array(
-                         'waybill'                 => $excel['0'],
-                         'th'                      => $excel['2'],
-                         'kurir'                   => $excel['3'],
-                         'type'                    => $excel['22'], //Mountly, POD, Cash
-                         'fee'                     => $excel['14'],
-                         'pod_time'                => $pod,
+                         'waybill'                 => $excel['0'], //kolom 1  no waybill
+                         'th'                      => $excel['2'], //kolom 2     Shipping date
+                         'kurir'                   => $excel['3'], //kolom 3    origin branch
+                         'type'                    => $excel['22'], //Mountly, POD, Cash 
+                         'fee'                     => $excel['14'], //total shipping fee
+                         'pod_time'                => $pod, // 
                          'id_import'               => $id_import,
                     );
                     //cek jika waybill sudah ada maka di next                  

@@ -111,6 +111,7 @@
                <thead>
                     <tr>
                          <th>NO</th>
+                         <th>TH</th>
                          <th>POD-Time</th>
                          <th>PAD</th>
                          <th>Cash</th>
@@ -118,7 +119,7 @@
                          <th class="bg-warning text-white">Total</th>
                          <th class="bg-success">Sudah-Setor</th>
                          <th class="bg-primary">Sisa-Tagihan</th>
-                         <th>Aksi</th>
+                         <!-- <th>Aksi</th> -->
                     </tr>
                </thead>
                <tbody>
@@ -130,15 +131,16 @@
                          <tr>
                               <td><?= $no++; ?></td>
                               <td><?= $h->pod_time; ?></td>
+                              <td><?= $h->th; ?></td>
                               <td class="bg-warning text-white"><?= number_format($h->pad); ?></td>
                               <td class="bg-warning text-white"><?= number_format($h->cash); ?></td>
                               <td class="bg-warning text-white"><?= number_format($h->cod); ?></td>
                               <td class="bg-warning text-white"><?= number_format($h->semua); ?></td>
                               <td><?= number_format($h->sudah_setor); ?></td>
                               <td><?= number_format($h->belum_setor); ?></td>
-                              <td>
+                              <!-- <td>
                                    <a href="<?= site_url('histori-cek/') . $h->pod_time ?>" class="btn btn-sm btn-primary">Cek</a>
-                              </td>
+                              </td> -->
                          </tr>
                     <?php
                          $total += $h->semua;
@@ -150,6 +152,7 @@
                <tfoot>
                     <tr>
                          <th>NO</th>
+                         <th>TH</th>
                          <th>POD-Time</th>
                          <th>PAD</th>
                          <th>Cash</th>
@@ -157,7 +160,7 @@
                          <th class="bg-warning text-white"><?= number_format($total); ?></th>
                          <th class="bg-success"><?= number_format($total_sudah_setor); ?></th>
                          <th class="bg-primary"><?= number_format($total_belum_setor); ?></th>
-                         <th>Aksi</th>
+                         <!-- <th>Aksi</th> -->
                     </tr>
                </tfoot>
           </table>

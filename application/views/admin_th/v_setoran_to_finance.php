@@ -32,7 +32,7 @@
 
 <div class="card">
      <div class="card-header">
-          <h3 class="card-title">Setoran ADMIN berdasarkan POD-Time (Bulan Berjalan)</h3>
+          <h3 class="card-title">Setoran ADMIN berdasarkan POD-Time (Tagihan akan tetap naik sebelum di konfirmasi Finance)</h3>
      </div>
      <!-- /.card-header -->
      <div class="card-body pt-0">
@@ -49,6 +49,7 @@
                </thead>
                <tbody>
                     <?php $no = 1;
+                    $total = 0;
                     foreach ($setoran as $s) { ?>
                          <tr>
                               <td><?= $no++; ?></td>
@@ -64,7 +65,9 @@
                                    <?php } ?>
                               </td>
                          </tr>
-                    <?php }; ?>
+                    <?php
+                         $total += $s->jumlah;
+                    }; ?>
                </tbody>
                <tfoot>
                     <tr>
@@ -72,7 +75,7 @@
                          <th>TH</th>
                          <th class="nowrap">POD-Time</th>
                          <th>Tanggal-Setor</th>
-                         <th>Jumlah-Setoran</th>
+                         <th><?= number_format($total); ?></th>
                          <th>Status</th>
                     </tr>
                </tfoot>

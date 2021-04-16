@@ -75,6 +75,7 @@ $route['konfirmasi/(:any)'] = 'setoranController/konfirmasi/$1';
 $route['batal-konfirmasi/(:any)'] = 'setoranController/batal_konfirmasi/$1';
 
 $route['history'] = 'historyController';
+$route['histori-cek/(:any)'] = 'historyController/histori_cek/$1';
 
 // admin
 $route['admin'] = 'adminController';
