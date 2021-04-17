@@ -7,6 +7,19 @@ use PhpOffice\PhpSpreadsheet\Reader\Xlsx;
 
 class UploadController extends CI_Controller
 {
+     public function __construct()
+     {
+          parent::__construct();
+          //Do your magic here
+          if ($this->session->userdata('status') !== 'telah_login') {
+               if ($this->session->userdata('pengguna_th') == "") {
+                    redirect(site_url('keluar'));
+               } elseif ($this->session->userdata('pengguna_level') == "") {
+                    redirect(site_url('keluar'));
+               }
+          }
+          date_default_timezone_set('Asia/Makassar');
+     }
      public function index()
      {
           $data['title'] = 'Upload Data';

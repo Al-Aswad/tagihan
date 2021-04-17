@@ -11,9 +11,10 @@ class AdminController extends CI_Controller
           if ($this->session->userdata('status') !== 'telah_login') {
                if ($this->session->userdata('pengguna_th') == "") {
                     redirect(site_url('keluar'));
+               } elseif ($this->session->userdata('pengguna_level') == "") {
+                    redirect(site_url('keluar'));
                }
           }
-
           date_default_timezone_set('Asia/Makassar');
      }
 

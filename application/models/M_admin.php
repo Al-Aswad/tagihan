@@ -21,8 +21,8 @@ class M_admin extends CI_Model
           $this->db->from('belum_setor as c');
           $this->db->join('karyawan k', 'LEFT(c.kurir,3)=k.kurir', 'LEFT');
           $this->db->where('c.th', $th);
-          $this->db->where("YEAR(c.pod_time)", $tahun_ini);
-          $this->db->where("MONTH(c.pod_time)", $bulan_ini);
+          // $this->db->where("YEAR(c.pod_time)", $tahun_ini);
+          // $this->db->where("MONTH(c.pod_time)", $bulan_ini);
           $this->db->where('c.status', 0);
 
           $i = 0;
@@ -73,8 +73,8 @@ class M_admin extends CI_Model
           $query = $this->db->get();
           $this->db->where('c.th', $th);
           $this->db->where('status', 0);
-          $this->db->where("YEAR(pod_time)", $tahun_ini);
-          $this->db->where("MONTH(pod_time)", $bulan_ini);
+          // $this->db->where("YEAR(pod_time)", $tahun_ini);
+          // $this->db->where("MONTH(pod_time)", $bulan_ini);
           return $query->num_rows();
      }
 
@@ -87,8 +87,8 @@ class M_admin extends CI_Model
           $this->db->from('belum_setor as c');
           $this->db->where('c.th', $th);
           $this->db->where('c.status', 0);
-          $this->db->where("YEAR(c.pod_time)", $tahun_ini);
-          $this->db->where("MONTH(c.pod_time)", $bulan_ini);
+          // $this->db->where("YEAR(c.pod_time)", $tahun_ini);
+          // $this->db->where("MONTH(c.pod_time)", $bulan_ini);
           return $this->db->count_all_results();
      }
 

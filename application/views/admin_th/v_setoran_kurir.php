@@ -59,11 +59,33 @@
                               <td class="text-nowrap"><?= number_format($s->blm_setor); ?></td>
                               <td class="text-nowrap bg-success"><?= number_format($s->sdh_setor); ?></td>
                               <td> <?php if ($s->sdh_setor > 0) { ?>
-                                        <a href="<?= site_url('admin-setor/') . $s->pod_time ?>" class="btn btn-sm btn-primary">Setor</a>
+                                        <a href="<?= site_url('admin-setor/') . $s->pod_time ?>" class="btn btn-sm btn-primary btn-admin-setor">Setor</a>
                                    <?php }; ?>
                               </td>
                          </tr>
                     <?php }; ?>
+                    <script>
+                         const buktisetoran = document.querySelector('.btn-admin-setor');
+                         const jumlah = $('.btn-setor-admin').data('btn-setor-admin');
+                         $('.btn-admin-setor').on('click', function(e) {
+                              // matikan fungsi defalut
+                              e.preventDefault();
+                              const href = $(this).attr('href');
+                              Swal.fire({
+                                   title: 'Yakin ?',
+                                   text: "Pastikan jumlah setoran sudah sesuai dengan bukti Transfer!",
+                                   icon: 'warning',
+                                   showCancelButton: true,
+                                   confirmButtonColor: '#3085d6',
+                                   cancelButtonColor: '#d33',
+                                   confirmButtonText: 'Yes, Yakin Banget!'
+                              }).then((result) => {
+                                   if (result.isConfirmed) {
+                                        document.location.href = href;
+                                   }
+                              })
+                         })
+                    </script>
                </tbody>
                <tfoot>
                     <tr>
@@ -77,6 +99,7 @@
                     </tr>
                </tfoot>
           </table>
+
      </div>
      <!-- /.card-body -->
 </div>

@@ -73,11 +73,15 @@
 <!-- date-range-picker -->
 <script src="<?= base_url('') . 'assets/' ?>plugins/daterangepicker/daterangepicker.js"></script>
 
+<!-- sweet alert 2 -->
+<script src="<?= base_url('') . 'assets/sweetalert/' ?>sweetalert2.all.min.js"></script>
+
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url('') . 'assets/' ?>dist/js/demo.js"></script>
 <script src="<?= base_url('') . 'assets/' ?>dist/js/myjs.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?= base_url('') . 'assets/' ?>dist/js/pages/dashboard2.js"></script>
+
 <script>
      $(function() {
           $("#example11").DataTable({

@@ -9,7 +9,11 @@ class HomeController extends CI_Controller
           parent::__construct();
           //Do your magic here
           if ($this->session->userdata('status') !== 'telah_login') {
-               redirect(site_url('keluar'));
+               if ($this->session->userdata('pengguna_th') == "") {
+                    redirect(site_url('keluar'));
+               } elseif ($this->session->userdata('pengguna_level') == "") {
+                    redirect(site_url('keluar'));
+               }
           }
           date_default_timezone_set('Asia/Makassar');
      }

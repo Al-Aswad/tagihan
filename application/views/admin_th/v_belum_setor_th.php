@@ -1,3 +1,4 @@
+<div class="swal" data-swal="<?= $this->session->flashdata('pesan'); ?>"></div>
 <div class="row">
      <div class="col-12">
           <div class="card">
@@ -6,7 +7,7 @@
                          <h3 class="card-title">Data Tagihan yang belum di setor ke ADMIN tanggal POD</h3>
                     </div>
                     <div class="col d-flex justify-content-end">
-                         <h6 class="m-0 font-weight-bold float-right"><button class="btn  btn-primary mr-1" type="button" id="btn-setor">Setor</button>
+                         <h6 class="m-0 font-weight-bold float-right"><button class="btn  btn-primary mr-1 btn btn-hapus" type="button" id="btn-setor">Setor</button>
                     </div>
                </div>
                <div class="card-body pt-0">
@@ -79,12 +80,12 @@
                                         $(".check-item").prop("checked", false); // un-ceklis semua checkbox siswa dengan class "check-item"
                               });
 
-                              $("#btn-setor").click(function() { // Ketika user mengklik tombol delete
-                                   var confirm = window.confirm("Apakah Anda yakin ingin menyetor?"); // Buat sebuah alert konfirmasi
-                                   alert
-                                   if (confirm) // Jika user mengklik tombol "Ok"
-                                        $("#form-setor").submit(); // Submit form
-                              });
+                              // $("#btn-setor").click(function() { // Ketika user mengklik tombol delete
+                              //      var confirm = window.confirm("Apakah Anda yakin ingin menyetor?"); // Buat sebuah alert konfirmasi
+                              //      alert
+                              //      if (confirm) // Jika user mengklik tombol "Ok"
+                              //           $("#form-setor").submit(); // Submit form
+                              // });
                          });
                     </script>
                </div>

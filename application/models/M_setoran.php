@@ -76,11 +76,12 @@ class M_setoran extends CI_Model
           $this->db->where("status", 1);
           return $this->db->get('belum_setor')->result();
      }
-     function update_to_finance($data)
+     function update_to_finance($data, $pod_time)
      {
           $th = $this->session->userdata('pengguna_th');
           $this->db->where('th', $th);
           $this->db->where('status', 1);
+          $this->db->where('pod_time', $pod_time);
           $this->db->update('belum_setor', $data);
      }
      function insert($data)

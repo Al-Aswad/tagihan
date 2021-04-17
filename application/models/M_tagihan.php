@@ -30,7 +30,7 @@ class M_tagihan extends CI_Model
           SUM(CASE WHEN s.status= 3 THEN fee ELSE 0 END) as terkonfirmasi 
           FROM belum_setor as s WHERE EXTRACT(YEAR_MONTH FROM pod_time)='$bulan'
           AND th='$th' 
-          GROUP BY th,pod_time ORDER BY SUM(fee)-SUM(CASE WHEN s.status= 3 THEN fee ELSE 0 END) DESC")->result();
+          GROUP BY th,pod_time ORDER BY pod_time")->result();
      }
 }
 

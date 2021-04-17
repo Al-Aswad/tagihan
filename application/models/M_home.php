@@ -19,9 +19,8 @@ class M_home extends CI_Model
           $this->db->select("id,waybill, karyawan_nik, karyawan_nama, th, type, fee,  pod_time,datediff(CURRENT_DATE,pod_time)  as timedown ");
           $this->db->from('belum_setor as c');
           $this->db->join('karyawan k', 'LEFT(c.kurir,3)=k.kurir', 'LEFT');
-          // $this->db->where('c.th', $th);
-          $this->db->where("YEAR(c.pod_time)", $tahun_ini);
-          $this->db->where("MONTH(c.pod_time)", $bulan_ini);
+          // $this->db->where("YEAR(c.pod_time)", $tahun_ini);
+          // $this->db->where("MONTH(c.pod_time)", $bulan_ini);
           $this->db->where('c.status', 0);
 
           $i = 0;
@@ -70,8 +69,8 @@ class M_home extends CI_Model
           $this->_get_datatables_query();
           $query = $this->db->get();
           $this->db->where('status', 0);
-          $this->db->where("YEAR(pod_time)", $tahun_ini);
-          $this->db->where("MONTH(pod_time)", $bulan_ini);
+          // $this->db->where("YEAR(pod_time)", $tahun_ini);
+          // $this->db->where("MONTH(pod_time)", $bulan_ini);
           return $query->num_rows();
      }
 
@@ -82,8 +81,8 @@ class M_home extends CI_Model
 
           $this->db->from('belum_setor as c');
           $this->db->where('c.status', 0);
-          $this->db->where("YEAR(c.pod_time)", $tahun_ini);
-          $this->db->where("MONTH(c.pod_time)", $bulan_ini);
+          // $this->db->where("YEAR(c.pod_time)", $tahun_ini);
+          // $this->db->where("MONTH(c.pod_time)", $bulan_ini);
           return $this->db->count_all_results();
      }
 

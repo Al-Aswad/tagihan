@@ -4,16 +4,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class SetoranController extends CI_Controller
 {
-
-
      public function __construct()
      {
           parent::__construct();
           //Do your magic here
           if ($this->session->userdata('status') !== 'telah_login') {
-               redirect(site_url('keluar'));
+               if ($this->session->userdata('pengguna_th') == "") {
+                    redirect(site_url('keluar'));
+               } elseif ($this->session->userdata('pengguna_level') == "") {
+                    redirect(site_url('keluar'));
+               }
           }
-
           date_default_timezone_set('Asia/Makassar');
      }
 
@@ -112,14 +113,14 @@ class SetoranController extends CI_Controller
                          'kode_setor' => $kode_setor->waybill,
                          'last_update' => date('Y-m-d H:i:s'),
                     );
-
                     // proses update status setiap wybill
                     $awb = $this->m_setoran->get_awb($pod_time);
                     foreach ($awb as $a) {
-                         $this->m_setoran->update_to_finance($data_update);
+                         $this->m_setoran->update_to_finance($data_update, $pod_time); //update tabel blum_setor ubha  status dari 1 ke 2 
                     }
                     //insert ke tabel setoran admin
                     $this->m_setoran->insert($data);
+                    redirect(base_url('setoran-kurir?proses?berhasil'));
                } else {
                     // jika gambart gagal upload
                     $tgl = $this->input->post('pod_time');

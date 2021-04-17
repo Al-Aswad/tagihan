@@ -82,3 +82,42 @@ $(document).ready(function() {
         ]
     });
 });
+
+const swal = $('.swal').data('swal');
+if (swal) {
+    Swal.fire({
+        title: 'Berhasil',
+        text: swal,
+        icon: 'success'
+            // footer: '<a href>Why do I have this issue?</a>'
+    })
+}
+
+
+const setor = document.querySelector('#btn-setor');
+setor.addEventListener('click', function(e) {
+    // matikan fungsi defalut
+    e.preventDefault();
+    const form = document.querySelector('#btn-setor');
+    Swal.fire({
+        title: 'Yakin ?',
+        text: "Akan menyetor awb yang telah dipilih!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, Yakin Banget!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            document.querySelector("#form-setor").submit();
+            // $("#form-setor").submit(); // Submit form
+        }
+    })
+})
+
+
+// alert setor bukti storan
+$('.btn-admin-setor').on('click', function(e) {
+    // matikan fungsi defalut
+    e.preventDefault();
+})

@@ -50,6 +50,7 @@
                </thead>
                <tbody>
                     <?php $no = 1;
+                    $total = 0;
                     foreach ($setoran as $s) { ?>
                          <tr>
                               <td><?= $no++; ?></td>
@@ -65,7 +66,9 @@
                                    <a href="<?= site_url('setoran-cek/') . $s->kode_setor  ?>" class="btn btn-sm btn-primary">Cek</a>
                               </td>
                          </tr>
-                    <?php }; ?>
+                    <?php
+                         $total += $s->total;
+                    }; ?>
                </tbody>
                <tfoot>
                     <tr>
@@ -73,7 +76,7 @@
                          <th>TH</th>
                          <th>POD-Time</th>
                          <th>Tanggal-Setor</th>
-                         <th>Jumlah-Setoran</th>
+                         <th><?= number_format($total); ?></th>
                          <th>Periksa</th>
                          <th>Aksi</th>
                     </tr>

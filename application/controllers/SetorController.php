@@ -4,6 +4,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class SetorController extends CI_Controller
 {
+     public function __construct()
+     {
+          parent::__construct();
+          //Do your magic here
+          if ($this->session->userdata('status') !== 'telah_login') {
+               if ($this->session->userdata('pengguna_th') == "") {
+                    redirect(site_url('keluar'));
+               } elseif ($this->session->userdata('pengguna_level') == "") {
+                    redirect(site_url('keluar'));
+               }
+          }
+          date_default_timezone_set('Asia/Makassar');
+     }
 
      public function index()
      {
@@ -70,6 +83,7 @@ class SetorController extends CI_Controller
           }
           // mengambil id untuk kembali ke 
           $get_id = $this->m_setor->get_id($th, $pod_time);
+          $this->session->set_flashdata('pesan', 'DiSetor');
           redirect(base_url('') . 'home/belum-setor-th/' . md5($get_id->id));
      }
 
