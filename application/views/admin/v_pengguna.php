@@ -39,8 +39,8 @@
                                              }; ?></td>
                                         <?php if ($this->session->userdata('pengguna_level') == 1) { ?>
                                              <td>
-                                                  <a class="btn btn-sm btn-warning" href="<?= base_url('') . 'pengguna-edit' ?>">Edit</a>
-                                                  <a class="btn btn-sm btn-danger" href="<?= base_url('') . 'pengguna-hapus' ?>">Hapus</a>
+                                                  <a class="btn btn-sm btn-warning" href="<?= base_url('') . 'pengguna-edit/' . $a->pengguna_id ?>">Edit</a>
+                                                  <a class="btn btn-sm btn-danger" href="<?= base_url('') . 'pengguna-hapus/' . $a->pengguna_id ?>">Hapus</a>
                                              </td>
                                         <?php } ?>
                                    </tr>

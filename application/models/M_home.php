@@ -113,10 +113,10 @@ class M_home extends CI_Model
           SUM( CASE WHEN TYPE = 'Monthly' AND STATUS = 1 THEN fee ELSE 0 END) AS s_cod,
           SUM( CASE WHEN TYPE = 'Cash' AND STATUS = 1 THEN fee ELSE 0 END) AS s_cash,
           SUM( CASE WHEN STATUS = 1 THEN fee ELSE 0 END) AS s_semua,
-          SUM( CASE WHEN TYPE = 'PAD' AND STATUS= 0 THEN fee ELSE 0 END) AS ss_pad,
-          SUM( CASE WHEN TYPE = 'Monthly' AND STATUS = 0 THEN fee ELSE 0 END) AS ss_cod,
-          SUM( CASE WHEN TYPE = 'Cash' AND STATUS = 0 THEN fee ELSE 0 END) AS ss_cash,
-          SUM( CASE WHEN status = 0 THEN fee ELSE 0 END) AS ss_semua
+          SUM( CASE WHEN TYPE = 'PAD' AND STATUS= 0 THEN fee ELSE 0 END) AS b_pad,
+          SUM( CASE WHEN TYPE = 'Monthly' AND STATUS = 0 THEN fee ELSE 0 END) AS b_cod,
+          SUM( CASE WHEN TYPE = 'Cash' AND STATUS = 0 THEN fee ELSE 0 END) AS b_cash,
+          SUM( CASE WHEN status != 3 THEN fee ELSE 0 END) AS b_semua
           FROM `belum_setor` WHERE EXTRACT(YEAR_MONTH FROM pod_time)='$bulan'")->row();
      }
 }

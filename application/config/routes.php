@@ -92,5 +92,7 @@ $route['tagihan-th'] = 'tagihanController/th';
 //pengguna
 $route['pengguna'] = 'penggunaController';
 $route['pengguna-tambah'] = 'penggunaController/tambah';
-$route['pengguna-edit'] = 'penggunaController/edit';
-$route['pengguna-hapus'] = 'penggunaController/hapus';
+$route['pengguna-tambah/aksi'] = 'penggunaController/tambah_aksi';
+$route['pengguna-edit/(:num)'] = 'penggunaController/edit/$1';
+$route['pengguna-edit/aksi'] = 'penggunaController/edit_aksi';
+$route['pengguna-hapus/(:num)'] = 'penggunaController/hapus/$1';

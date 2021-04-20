@@ -67,6 +67,72 @@
 		</div>
 	</div>
 </div>
+<h5 class="mt-4 mb-2">Nominal Tagihan Bulan ini <code></code></h5>
+<div class="row">
+	<div class="col-md-3 col-sm-6 col-12">
+		<div class="info-box bg-gradient-info">
+			<span class="info-box-icon"><i class="far fa-bookmark"></i></span>
+
+			<div class="info-box-content">
+				<span class="info-box-text">PAD</span>
+				<span class="info-box-number"><?= number_format($tagihan->pad); ?></span>
+				<div class="progress">
+					<div class="progress-bar" style="width: 70%"></div>
+				</div>
+				<span class="progress-description">
+					Sisa <?= number_format($tagihan->b_pad); ?>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3 col-sm-6 col-12">
+		<div class="info-box bg-gradient-success">
+			<span class="info-box-icon"><i class="far fa-thumbs-up"></i></span>
+
+			<div class="info-box-content">
+				<span class="info-box-text">Cash</span>
+				<span class="info-box-number"><?= number_format($tagihan->cash); ?></span>
+
+				<div class="progress">
+					<div class="progress-bar" style="width: 70%"></div>
+				</div>
+				<span class="progress-description">
+					Belum di Setor <?= number_format($tagihan->b_cash); ?>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3 col-sm-6 col-12">
+		<div class="info-box bg-gradient-warning">
+			<span class="info-box-icon"><i class="far fa-calendar-alt"></i></span>
+			<div class="info-box-content">
+				<span class="info-box-text">COD</span>
+				<span class="info-box-number"><?= number_format($tagihan->cod); ?></span>
+				<div class="progress">
+					<div class="progress-bar" style="width: 70%"></div>
+				</div>
+				<span class="progress-description">
+					Belum di Setor <?= number_format($tagihan->b_cod); ?>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-3 col-sm-6 col-12">
+		<div class="info-box bg-gradient-danger">
+			<span class="info-box-icon"><i class="fas fa-comments"></i></span>
+			<div class="info-box-content">
+				<span class="info-box-text">Total</span>
+				<span class="info-box-number"><?= number_format($tagihan->semua_tagihan); ?></span>
+				<div class="progress">
+					<div class="progress-bar" style="width: 70%"></div>
+				</div>
+				<span class="progress-description">
+					Belum di Setor <?= number_format($tagihan->b_semua); ?>
+				</span>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="row">
 	<div class="col-12">
 		<div class="card">
