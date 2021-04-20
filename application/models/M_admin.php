@@ -110,9 +110,21 @@ class M_admin extends CI_Model
      function get_nominal()
      {
           $th = $this->session->userdata('pengguna_th');
-          $this->db->where('th', $th);
-          $this->db->where('status', 0);
-          return $this->db->get('belum_setor')->row();
+          $bulan = date('Ym');
+          return $this->db->query("SELECT
+          SUM( CASE WHEN TYPE = 'PAD' AND waybill != '' THEN fee ELSE 0 END) AS pad,
+          SUM( CASE WHEN TYPE = 'Monthly' AND waybill != '' THEN fee ELSE 0 END) AS cod,
+          SUM( CASE WHEN TYPE = 'Cash' AND waybill != '' THEN fee ELSE 0 END) AS cash,
+          SUM( CASE WHEN waybill != '' THEN fee ELSE 0 END) AS semua_tagihan,
+          SUM( CASE WHEN TYPE = 'PAD' AND STATUS= 1 THEN fee ELSE 0 END) AS s_pad,
+          SUM( CASE WHEN TYPE = 'Monthly' AND STATUS = 1 THEN fee ELSE 0 END) AS s_cod,
+          SUM( CASE WHEN TYPE = 'Cash' AND STATUS = 1 THEN fee ELSE 0 END) AS s_cash,
+          SUM( CASE WHEN STATUS = 1 THEN fee ELSE 0 END) AS s_semua,
+          SUM( CASE WHEN TYPE = 'PAD' AND STATUS= 0 THEN fee ELSE 0 END) AS b_pad,
+          SUM( CASE WHEN TYPE = 'Monthly' AND STATUS = 0 THEN fee ELSE 0 END) AS b_cod,
+          SUM( CASE WHEN TYPE = 'Cash' AND STATUS = 0 THEN fee ELSE 0 END) AS b_cash,
+          SUM( CASE WHEN status != 3 THEN fee ELSE 0 END) AS b_semua
+          FROM `belum_setor` WHERE EXTRACT(YEAR_MONTH FROM pod_time)='$bulan' and th='$th'")->row();
      }
 }
 

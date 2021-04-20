@@ -22,6 +22,7 @@ class AdminController extends CI_Controller
      {
           //memunculkan semua data tagihan yang belum di setor
           $data['jumlahawb'] = $this->m_admin->get_awb();
+          $data['tagihan'] = $this->m_admin->get_nominal();
           // var_dump($data);
           // die();
           $data['title'] = 'Home';

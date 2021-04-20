@@ -128,4 +128,30 @@ class PenggunaController extends CI_Controller
           $this->session->flashdata('pesan');
           redirect(base_url('pengguna?delete=sukses'));
      }
+
+
+     function ubah_password()
+     {
+
+          $data['nik'] = $this->session->userdata('pengguna_nik');
+          $data['title'] = 'Manajemen Akun';
+          $this->load->view('admin/v_header', $data);
+          $this->load->view('pengguna/v_ubah_password');
+          $this->load->view('admin/v_footer');
+     }
+
+     function ubah_password_aksi()
+     {
+          $this->form_validation->set_rules('password_lama', 'password', 'trim|required');
+          $this->form_validation->set_rules('password', 'Password Baru', 'trim|required');
+          $this->form_validation->set_rules('password1', 'Confirm Password Baru', 'trim|required|matches[password]');
+
+
+          if ($this->form_validation->run() == TRUE) {
+               # code...
+          } else {
+               # code...
+               redirect(base_url('ubah-password?form=lengkapi_form'));
+          }
+     }
 }

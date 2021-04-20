@@ -89,7 +89,7 @@ class SetoranController extends CI_Controller
                //pengaturan gambar yang akan di upload
                $config['upload_path'] = 'gambar/bukti_transfer';
                $config['allowed_types'] = 'jpeg|jpg|png';
-               $config['max_size'] = 1024; //max ukuran gambar
+               $config['max_size'] = 3024; //max ukuran gambar
                $config['file_name'] = $kode_setor->waybill;
 
                $this->load->library('upload', $config);
@@ -124,7 +124,8 @@ class SetoranController extends CI_Controller
                } else {
                     // jika gambart gagal upload
                     $tgl = $this->input->post('pod_time');
-                    $this->setor_to_finance($tgl);
+                    redirect(base_url('setoran-kurir?gambar?gagal'));
+                    // $this->setor_to_finance($tgl);
                }
           } else {
                # code...

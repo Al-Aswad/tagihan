@@ -96,3 +96,8 @@ $route['pengguna-tambah/aksi'] = 'penggunaController/tambah_aksi';
 $route['pengguna-edit/(:num)'] = 'penggunaController/edit/$1';
 $route['pengguna-edit/aksi'] = 'penggunaController/edit_aksi';
 $route['pengguna-hapus/(:num)'] = 'penggunaController/hapus/$1';
+
+
+//umum
+$route['ubah-password'] = 'penggunaController/ubah_password';
+$route['ubah-password/aksi'] = 'penggunaController/ubah_password_aksi';

@@ -37,7 +37,9 @@
                                                   <small class="badge badge-success"><i class="fas fa-check"></i> Oke</small>
                                              <?php } ?>
                                         </td>
-                                        <td><?= $b->bukti_setoran; ?></td>
+                                        <td>
+                                             <a href="<?php echo base_url() . 'gambar/bukti_transfer/' . $b->bukti_setoran; ?>" target="_blank"><?= $b->bukti_setoran; ?></a>
+                                        </td>
                                         <td><?= $b->keterangan; ?></td>
                                         <td>
                                              <?php if ($b->status == 0) { ?>

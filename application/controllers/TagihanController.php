@@ -42,7 +42,7 @@ class TagihanController extends CI_Controller
      // }
      function th()
      {
-          $bulan = $this->input->post('bulan');
+          $bulan = $this->input->get('bulan');
           if ($bulan) {
                $data['tagihan'] = $this->m_tagihan->tagihan_th($bulan);
           } else {

@@ -59,7 +59,7 @@ class UploadController extends CI_Controller
                $jumlah = 0;
                foreach ($sheetData as $x  => $excel) {
                     //skip judul table
-                    $p = $excel['12'];
+                    $p = $excel['14'];
                     $id_import = 'cod-' . date('Ymd') . '-' . $nomor;
                     $pod = date("Y-m-d", strtotime($p));
                     if ($x <= 0) {
@@ -70,22 +70,22 @@ class UploadController extends CI_Controller
                     }
                     if ($excel['9'] == "Monthly") {
                          // $excel['8'] = 0; //jika moutly makan PAD di kosongkan
-                         if ($excel['10'] == 0) { //jika Cod kosong tdk di upload
+                         if ($excel['11'] == 0) { //jika Cod kosong tdk di upload
                               continue;
                          }
                     }
                     if ($excel['9'] == "PAD") {
                          // $excel['8'] = 0; //jika moutly makan PAD di kosongkan
-                         $excel['10'] = $excel['8'];
+                         $excel['11'] = $excel['8'];
                     } else {
-                         $excel['10'] = $excel['10'];
+                         $excel['11'] = $excel['10'];
                     }
                     $data = array(
                          'waybill'                 => $excel['0'],
                          'th'                      => $excel['4'],
                          'kurir'                   => $excel['6'],
                          'type'                    => $excel['9'], //Mountly, POD, Cash
-                         'fee'                     => $excel['10'],
+                         'fee'                     => $excel['11'],
                          'pod_time'                => $pod,
                          'id_import'               => $id_import,
                     );
@@ -165,7 +165,7 @@ class UploadController extends CI_Controller
                     $data = array(
                          'waybill'                 => $excel['0'], //kolom 1  no waybill
                          'th'                      => $excel['2'], //kolom 2     Shipping date
-                         'kurir'                   => $excel['3'], //kolom 3    origin branch
+                         'kurir'                   => $excel['35'], //kolom 3    origin branch
                          'type'                    => $excel['22'], //Mountly, POD, Cash 
                          'fee'                     => $excel['14'], //total shipping fee
                          'pod_time'                => $pod, // 

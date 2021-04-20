@@ -5,7 +5,7 @@
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
      <title><?= $title; ?> | Payment 24</title>
-
+     <link rel="icon" href="<?= base_url() . 'assets/icon/logo-favicon.png' ?>" type="image/x-icon">
      <!-- Google Font: Source Sans Pro -->
 
      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -49,17 +49,17 @@
 
           <!-- Navbar -->
           <nav class="main-header navbar navbar-expand navbar-dark p-0">
-               <!-- <ul class="navbar-nav">
+               <ul class="navbar-nav">
                     <li class="nav-item">
                          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                     </li>
-                    <li class="nav-item d-none d-sm-inline-block">
+                    <!-- <li class="nav-item d-none d-sm-inline-block">
                          <a href="<?= base_url('') . 'home' ?>" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item d-none d-sm-inline-block">
                          <a href="#" class="nav-link">Contact</a>
-                    </li>
-               </ul> -->
+                    </li> -->
+               </ul>
                <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                          <a class="nav-link" data-widget="fullscreen" href="#" role="button">
@@ -87,7 +87,7 @@
           <aside class="main-sidebar sidebar-dark-primary elevation-4">
                <div class="sidebar">
                     <!-- <hr> -->
-                    <a href="index3.html" class="brand-link pt-4 pb-1">
+                    <a href="#" class="brand-link pt-4 pb-1">
                          <img src="<?= base_url('') . 'assets/' ?>dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                          <p class="brand-text font-weight-light">Payment 24</p>
                     </a>
@@ -182,10 +182,33 @@
                               </li>
                               <li class="nav-header">Akun</li>
                               <li class="nav-item">
-                                   <a href="<?= base_url('') . 'pengguna' ?>" class="nav-link">
+                                   <a href="#" class="nav-link">
+                                        <i class="nav-icon fas fa-users"></i>
+                                        <p>
+                                             Akun
+                                             <i class="right fas fa-angle-left"></i>
+                                        </p>
+                                   </a>
+                                   <ul class="nav nav-treeview">
+                                        <li class="nav-item">
+                                             <a href="<?= base_url('') . 'pengguna' ?>" class="nav-link">
+                                                  <p>Akun</p>
+                                             </a>
+                                        </li>
+                                        <li class="nav-item">
+                                             <a href="<?= base_url('') . 'ubah-password' ?>" class="nav-link">
+                                                  <p>Ubah Password</p>
+                                             </a>
+                                        </li>
+                                   </ul>
+                                   <!-- <a href="<?= base_url('') . 'pengguna' ?>" class="nav-link">
                                         <i class="nav-icon fas fa-users"></i>
                                         <p>User</p>
                                    </a>
+                                   <a href="<?= base_url('') . 'ubah-password' ?>" class="nav-link">
+                                        <i class="nav-icon fas fa-users"></i>
+                                        <p>Ubah Password</p>
+                                   </a> -->
                               </li>
                               <li class="nav-item">
                                    <a href="<?= base_url('') . 'keluar' ?>" class="nav-link">
